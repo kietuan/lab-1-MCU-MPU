@@ -86,22 +86,55 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-    int count = 0;
-    HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin,GPIO_PIN_SET);
+    HAL_GPIO_WritePin(RED1_GPIO_Port, RED1_Pin, 1);
+    HAL_GPIO_WritePin(RED2_GPIO_Port, RED2_Pin, 0);
+
+    HAL_GPIO_WritePin(GREEN1_GPIO_Port, GREEN1_Pin, 0);
+    HAL_GPIO_WritePin(GREEN2_GPIO_Port, GREEN2_Pin, 1);
+
+    HAL_GPIO_WritePin(YELLOW1_GPIO_Port, YELLOW1_Pin, 0);
+    HAL_GPIO_WritePin(YELLOW2_GPIO_Port, YELLOW2_Pin, 0);
+
+    uint32_t count = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
     while (1)
     {
-  	  if (count >= 200)
-  	  	  {
-  	  		  HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
-  	  		  HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
-  	  		  count = 0;
-  	  	  }
-  	  	  count++;
-  	  	  HAL_Delay(10);
+  	  if (count == 300)
+  	  {
+  		  HAL_GPIO_TogglePin(GREEN2_GPIO_Port, GREEN2_Pin); //0
+  		  HAL_GPIO_TogglePin(YELLOW2_GPIO_Port, YELLOW2_Pin); //1
+  	  }
+
+  	  if (count == 500)
+  	  {
+  		  HAL_GPIO_TogglePin(YELLOW2_GPIO_Port, YELLOW2_Pin);//0
+  		  HAL_GPIO_TogglePin(RED2_GPIO_Port, RED2_Pin);//1
+
+  		  HAL_GPIO_TogglePin(RED1_GPIO_Port, RED1_Pin); //0
+  		  HAL_GPIO_TogglePin(GREEN1_GPIO_Port, GREEN1_Pin); //1
+  	  }
+
+  	  if (count == 800){
+  		  HAL_GPIO_TogglePin(GREEN1_GPIO_Port, GREEN1_Pin); //0
+  		  HAL_GPIO_TogglePin(YELLOW1_GPIO_Port, YELLOW1_Pin); //1
+  	  }
+
+  	  if (count == 1000)
+  	  {
+  		  HAL_GPIO_TogglePin(YELLOW1_GPIO_Port, YELLOW1_Pin);//0
+  		  HAL_GPIO_TogglePin(RED1_GPIO_Port, RED1_Pin);//1
+
+  		  HAL_GPIO_TogglePin(RED2_GPIO_Port, RED2_Pin); //0
+  		  HAL_GPIO_TogglePin(GREEN2_GPIO_Port, GREEN2_Pin); //1
+
+  		  count = 0;
+  	  }
+
+  	  count++;
+  	  HAL_Delay(10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -157,10 +190,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED2_Pin|LED1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, GREEN2_Pin|YELLOW2_Pin|RED2_Pin|GREEN1_Pin
+                          |YELLOW1_Pin|RED1_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : LED2_Pin LED1_Pin */
-  GPIO_InitStruct.Pin = LED2_Pin|LED1_Pin;
+  /*Configure GPIO pins : GREEN2_Pin YELLOW2_Pin RED2_Pin GREEN1_Pin
+                           YELLOW1_Pin RED1_Pin */
+  GPIO_InitStruct.Pin = GREEN2_Pin|YELLOW2_Pin|RED2_Pin|GREEN1_Pin
+                          |YELLOW1_Pin|RED1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
