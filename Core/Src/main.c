@@ -54,7 +54,7 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+void clearAllClock(void);
 /* USER CODE END 0 */
 
 /**
@@ -86,7 +86,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  unsigned int count = 0;
+//  unsigned int count = 0;
 
   /* USER CODE END 2 */
 
@@ -94,202 +94,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if (count == 100)
-	  {
-		  HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 0);
-		  HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 1);
-		  HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 0);
-		  HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 0);
-		  HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 0);
-		  HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 0);
-		  HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 0);
-		  HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 0);
-		  HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 0);
-		  HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 0);
-		  HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 0);
-		  HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
-	  }
-
-	  if (count == 200)
-	  {
-		  HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 0);
-		  HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 0);
-		  HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 1);
-		  HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 0);
-		  HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 0);
-		  HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 0);
-		  HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 0);
-		  HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 0);
-		  HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 0);
-		  HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 0);
-		  HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 0);
-		  HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
-	  }
-
-	  if (count == 300)
-	  {
-		  HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 0);
-		  HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 0);
-		  HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 0);
-		  HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 1);
-		  HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 0);
-		  HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 0);
-		  HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 0);
-		  HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 0);
-		  HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 0);
-		  HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 0);
-		  HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 0);
-		  HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
-	  }
-
-	  if (count == 400)
-	  {
-		  HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 0);
-		  HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 0);
-		  HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 0);
-		  HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 0);
-		  HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 1);
-		  HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 0);
-		  HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 0);
-		  HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 0);
-		  HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 0);
-		  HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 0);
-		  HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 0);
-		  HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
-	  }
-
-	  if (count == 500)
-	  {
-		  HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 0);
-		  HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 0);
-		  HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 0);
-		  HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 0);
-		  HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 0);
-		  HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 1);
-		  HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 0);
-		  HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 0);
-		  HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 0);
-		  HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 0);
-		  HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 0);
-		  HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
-	  }
-
-	  if (count == 600)
-	  {
-		  HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 0);
-		  HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 0);
-		  HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 0);
-		  HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 0);
-		  HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 0);
-		  HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 0);
-		  HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 1);
-		  HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 0);
-		  HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 0);
-		  HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 0);
-		  HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 0);
-		  HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
-	  }
-
-	  if (count == 700)
-	  {
-		  HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 0);
-		  HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 0);
-		  HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 0);
-		  HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 0);
-		  HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 0);
-		  HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 0);
-		  HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 0);
-		  HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 1);
-		  HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 0);
-		  HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 0);
-		  HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 0);
-		  HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
-	  }
-
-	  if (count == 800)
-	  {
-		  HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 0);
-		  HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 0);
-		  HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 0);
-		  HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 0);
-		  HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 0);
-		  HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 0);
-		  HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 0);
-		  HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 0);
-		  HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 1);
-		  HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 0);
-		  HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 0);
-		  HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
-	  }
-
-	  if (count == 900)
-	  {
-		  HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 0);
-		  HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 0);
-		  HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 0);
-		  HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 0);
-		  HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 0);
-		  HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 0);
-		  HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 0);
-		  HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 0);
-		  HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 0);
-		  HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 1);
-		  HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 0);
-		  HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
-	  }
-
-	  if (count == 1000)
-	  {
-		  HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 0);
-		  HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 0);
-		  HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 0);
-		  HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 0);
-		  HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 0);
-		  HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 0);
-		  HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 0);
-		  HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 0);
-		  HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 0);
-		  HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 0);
-		  HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 1);
-		  HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
-	  }
-
-	  if (count == 1100)
-	  {
-		  HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 0);
-		  HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 0);
-		  HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 0);
-		  HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 0);
-		  HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 0);
-		  HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 0);
-		  HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 0);
-		  HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 0);
-		  HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 0);
-		  HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 0);
-		  HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 0);
-		  HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 1);
-	  }
-
-	  if (count == 1200)
-	  {
-		  HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 1);
-		  HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 0);
-		  HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 0);
-		  HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 0);
-		  HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 0);
-		  HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 0);
-		  HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 0);
-		  HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 0);
-		  HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 0);
-		  HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 0);
-		  HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 0);
-		  HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
-
-		  count = 0;
-	  }
-
-	  count++;
-	  HAL_Delay(10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -363,7 +167,21 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void clearAllClock(void)
+{
+	HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 0);
+	HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 0);
+	HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 1);
+	HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 0);
+	HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 0);
+	HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 0);
+	HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 0);
+	HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 0);
+	HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 0);
+	HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 0);
+	HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 0);
+	HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
+}
 /* USER CODE END 4 */
 
 /**
