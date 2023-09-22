@@ -190,13 +190,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, GREEN2_Pin|YELLOW2_Pin|RED2_Pin|GREEN1_Pin
-                          |YELLOW1_Pin|RED1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, GREEN2_Pin|YELLOW2_Pin|RED2_Pin|RED1_Pin
+                          |YELLOW1_Pin|GREEN1_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : GREEN2_Pin YELLOW2_Pin RED2_Pin GREEN1_Pin
-                           YELLOW1_Pin RED1_Pin */
-  GPIO_InitStruct.Pin = GREEN2_Pin|YELLOW2_Pin|RED2_Pin|GREEN1_Pin
-                          |YELLOW1_Pin|RED1_Pin;
+  /*Configure GPIO pins : GREEN2_Pin YELLOW2_Pin RED2_Pin RED1_Pin
+                           YELLOW1_Pin GREEN1_Pin */
+  GPIO_InitStruct.Pin = GREEN2_Pin|YELLOW2_Pin|RED2_Pin|RED1_Pin
+                          |YELLOW1_Pin|GREEN1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
