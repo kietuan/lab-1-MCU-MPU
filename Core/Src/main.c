@@ -54,7 +54,7 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void setNumberOnClock (int);
+void clearNumberOnClock (int);
 /* USER CODE END 0 */
 
 /**
@@ -166,49 +166,49 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void setNumberOnClock (int num)
+void clearNumberOnClock (int num)
 {
 	if (0 == num)
 	{
-		HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 1);
+		HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 0);
 	}
 
 	if (1 == num)
 	{
-		HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 1);
+		HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 0);
 	}
 
 	if (2 == num)
 	{
-		HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 1);
+		HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 0);
 	}
 
 	if (3 == num)
-		HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 1);
+		HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 0);
 
 	if (4 == num)
-		HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 1);
+		HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 0);
 
 	if (5 == num)
-		HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 1);
+		HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 0);
 
 	if (6 == num)
-		HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 1);
+		HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 0);
 
 	if (7 == num)
-		HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 1);
+		HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 0);
 
 	if (8 == num)
-		HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 1);
+		HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 0);
 
 	if (9 == num)
-		HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 1);
+		HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 0);
 
 	if (10 == num)
-		HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 1);
+		HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 0);
 
 	if (11 == num)
-		HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 1);
+		HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
 }
 /* USER CODE END 4 */
 
