@@ -86,22 +86,37 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-    int count = 0;
-    HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin,GPIO_PIN_SET);
+    HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, 1);
+    HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, 0);
+    HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, 0);
+    uint32_t count = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
     while (1)
     {
-  	  if (count >= 200)
-  	  	  {
-  	  		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-  	  		  HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
-  	  		  count = 0;
-  	  	  }
-  	  	  count++;
-  	  	  HAL_Delay(10);
+  	  if (count == 500)
+  	  {
+  		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);//0
+  		  HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin); //1
+  	  }
+
+  	  if (count == 800){
+  		  HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin); //0
+  		  HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin); //1
+  	  }
+
+  	  if (count == 1000)
+  	  {
+  		  HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);//0
+  		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);//1
+
+  		  count = 0;
+  	  }
+
+  	  count++;
+  	  HAL_Delay(10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
