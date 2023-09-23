@@ -87,7 +87,7 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, 1);
-    HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, 0);
+    HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, 1);
     HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, 0);
     uint32_t count = 0;
   /* USER CODE END 2 */
