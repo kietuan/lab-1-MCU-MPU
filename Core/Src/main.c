@@ -102,36 +102,37 @@ int main(void)
   /* USER CODE BEGIN WHILE */
     while (1)
     {
-  	  if (count == 300)
-  	  {
-  		  HAL_GPIO_TogglePin(GREEN2_GPIO_Port, GREEN2_Pin); //0
-  		  HAL_GPIO_TogglePin(YELLOW2_GPIO_Port, YELLOW2_Pin); //1
-  	  }
+    	switch (count)
+    	      {
+    	        case 300:
+    	          HAL_GPIO_WritePin(GREEN2_GPIO_Port, GREEN2_Pin, 0); //0
+    	          HAL_GPIO_WritePin(YELLOW2_GPIO_Port, YELLOW2_Pin, 1); //1
+    	          break;
 
-  	  if (count == 500)
-  	  {
-  		  HAL_GPIO_TogglePin(YELLOW2_GPIO_Port, YELLOW2_Pin);//0
-  		  HAL_GPIO_TogglePin(RED2_GPIO_Port, RED2_Pin);//1
+    	        case 500:
+    	          HAL_GPIO_WritePin(YELLOW2_GPIO_Port, YELLOW2_Pin, 0);//0
+    	          HAL_GPIO_WritePin(RED2_GPIO_Port, RED2_Pin, 1);//1
 
-  		  HAL_GPIO_TogglePin(RED1_GPIO_Port, RED1_Pin); //0
-  		  HAL_GPIO_TogglePin(GREEN1_GPIO_Port, GREEN1_Pin); //1
-  	  }
+    	          HAL_GPIO_WritePin(RED1_GPIO_Port, RED1_Pin, 0); //0
+    	          HAL_GPIO_WritePin(GREEN1_GPIO_Port, GREEN1_Pin, 1); //1
+    	          break;
 
-  	  if (count == 800){
-  		  HAL_GPIO_TogglePin(GREEN1_GPIO_Port, GREEN1_Pin); //0
-  		  HAL_GPIO_TogglePin(YELLOW1_GPIO_Port, YELLOW1_Pin); //1
-  	  }
+    	        case 800:
+    	          HAL_GPIO_WritePin(GREEN1_GPIO_Port, GREEN1_Pin, 0); //0
+    	          HAL_GPIO_WritePin(YELLOW1_GPIO_Port, YELLOW1_Pin, 1); //1
+    	          break;
 
-  	  if (count == 1000)
-  	  {
-  		  HAL_GPIO_TogglePin(YELLOW1_GPIO_Port, YELLOW1_Pin);//0
-  		  HAL_GPIO_TogglePin(RED1_GPIO_Port, RED1_Pin);//1
+    	        case 1000:
+    	          count = 0;
+    	          HAL_GPIO_WritePin(YELLOW1_GPIO_Port, YELLOW1_Pin, 0);//0
+    	          HAL_GPIO_WritePin(RED1_GPIO_Port, RED1_Pin, 1);//1
 
-  		  HAL_GPIO_TogglePin(RED2_GPIO_Port, RED2_Pin); //0
-  		  HAL_GPIO_TogglePin(GREEN2_GPIO_Port, GREEN2_Pin); //1
+    	          HAL_GPIO_WritePin(RED2_GPIO_Port, RED2_Pin, 0); //0
+    	          HAL_GPIO_WritePin(GREEN2_GPIO_Port, GREEN2_Pin, 1); //1
+    	          break;
 
-  		  count = 0;
-  	  }
+    	        default: break;
+    	      }
 
   	  count++;
   	  HAL_Delay(10);
