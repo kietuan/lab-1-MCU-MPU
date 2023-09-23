@@ -56,7 +56,7 @@ static void MX_GPIO_Init(void);
 /* USER CODE BEGIN 0 */
 void clearNumberOnClock (int);
 void setNumberOnClock (int);
-void displayClock (const int, const int, const int);
+void displayClock (int, int, int);
 void increaseClock(int*, int*, int*);
 /* USER CODE END 0 */
 
@@ -89,9 +89,9 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  int hour = 11;
-  int minute = 15;
-  int second = 32;
+  int hour = 23;
+  int minute = 5;
+  int second = 29;
   uint32_t counter = 0;
   /* USER CODE END 2 */
 
@@ -99,7 +99,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if (counter >= 100)
+	  if (counter >= 10)
 	  {
 		  counter = 0;
 		  increaseClock(&hour, &minute, &second);
@@ -270,8 +270,12 @@ void clearNumberOnClock (int num)
 		HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
 }
 
-void displayClock (const int hour, const int minute, const int second)
+void displayClock ( int hour,  int minute,  int second)
 {
+//	hour %= 12;
+//	minute %= 60;
+//	second %= 60;
+
 	for (int i = 0; i <= 11; ++i)
 	{
 		if (hour == i || second/5 == i || minute/5 == i)
@@ -283,6 +287,10 @@ void displayClock (const int hour, const int minute, const int second)
 
 void increaseClock (int* hour, int* minute, int* second)
 {
+//	(*hour) %= 12;
+//	(*minute) %= 60;
+//	(*second) %= 60;
+
 	(*second)++;
 	if (*second >= 60)
 	{
