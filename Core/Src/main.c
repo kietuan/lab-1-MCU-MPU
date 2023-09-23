@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdint.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,6 +55,9 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 void clearNumberOnClock (int);
+void setNumberOnClock (int);
+void displayClock (const int, const int, const int);
+void increaseClock(int*, int*, int*);
 /* USER CODE END 0 */
 
 /**
@@ -86,13 +89,24 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
+  int hour = 11;
+  int minute = 15;
+  int second = 32;
+  uint32_t counter = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  if (counter >= 100)
+	  {
+		  counter = 0;
+		  increaseClock(&hour, &minute, &second);
+		  displayClock(hour, minute, second);
+	  }
+	  counter++;
+	  HAL_Delay(10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -166,6 +180,51 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void setNumberOnClock (int num)
+{
+	if (0 == num)
+	{
+		HAL_GPIO_WritePin(LD_0_GPIO_Port, LD_0_Pin, 1);
+	}
+
+	if (1 == num)
+	{
+		HAL_GPIO_WritePin(LD_1_GPIO_Port, LD_1_Pin, 1);
+	}
+
+	if (2 == num)
+	{
+		HAL_GPIO_WritePin(LD_2_GPIO_Port, LD_2_Pin, 1);
+	}
+
+	if (3 == num)
+		HAL_GPIO_WritePin(LD_3_GPIO_Port, LD_3_Pin, 1);
+
+	if (4 == num)
+		HAL_GPIO_WritePin(LD_4_GPIO_Port, LD_4_Pin, 1);
+
+	if (5 == num)
+		HAL_GPIO_WritePin(LD_5_GPIO_Port, LD_5_Pin, 1);
+
+	if (6 == num)
+		HAL_GPIO_WritePin(LD_6_GPIO_Port, LD_6_Pin, 1);
+
+	if (7 == num)
+		HAL_GPIO_WritePin(LD_7_GPIO_Port, LD_7_Pin, 1);
+
+	if (8 == num)
+		HAL_GPIO_WritePin(LD_8_GPIO_Port, LD_8_Pin, 1);
+
+	if (9 == num)
+		HAL_GPIO_WritePin(LD_9_GPIO_Port, LD_9_Pin, 1);
+
+	if (10 == num)
+		HAL_GPIO_WritePin(LD_10_GPIO_Port, LD_10_Pin, 1);
+
+	if (11 == num)
+		HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 1);
+}
+
 void clearNumberOnClock (int num)
 {
 	if (0 == num)
@@ -210,6 +269,35 @@ void clearNumberOnClock (int num)
 	if (11 == num)
 		HAL_GPIO_WritePin(LD_11_GPIO_Port, LD_11_Pin, 0);
 }
+
+void displayClock (const int hour, const int minute, const int second)
+{
+	for (int i = 0; i <= 11; ++i)
+	{
+		if (hour == i || second/5 == i || minute/5 == i)
+			setNumberOnClock (i);
+		else
+			clearNumberOnClock(i);
+	}
+}
+
+void increaseClock (int* hour, int* minute, int* second)
+{
+	(*second)++;
+	if (*second >= 60)
+	{
+		*second = 0;
+		(*minute)++;
+		if (*minute >= 60)
+		{
+			*minute = 0;
+			(*hour)++;
+			if (*hour >= 12)
+				*hour = 0;
+		}
+	}
+}
+
 /* USER CODE END 4 */
 
 /**
